@@ -29,4 +29,18 @@ const {
 onMounted(() => {
   getDeptData();
 });
+``` 
 
+#### 2. 模板绑定示例 (Template)
+配合 Element Plus 的 el-cascader/el-tree 使用
+``` typescript
+<template>
+  <el-cascader
+    v-model="selectedDept"
+    :options="deptOptions"
+    :props="deptCascaderProps"
+    placeholder="请选择部门"
+    clearable
+  />
+</template>
+```
