@@ -1,0 +1,580 @@
+.drawer-container {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: #f5f8fc;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+
+  :deep(.el-cascader.selectBox) {
+    width: 100% !important;
+    height: 48px !important;
+  }
+
+  :deep(.el-cascader.selectBox .el-input) {
+    width: 100% !important;
+  }
+
+  :deep(.el-cascader.selectBox .el-input__wrapper) {
+    width: 100% !important;
+    height: 48px !important;
+  }
+
+  .order-top {
+    margin: 25px 30px 0px;
+    border-radius: 14px;
+    background: var(--light_blue_bg);
+    border: 1px solid #BAC5D4;
+    font-size: 18px;
+
+    .order-top-title {
+      color: #64748B;
+      font-weight: 400;
+    }
+
+    .order-top-content {
+      color: #2C70DE;
+      font-weight: 500;
+    }
+
+    .order-top-content-state {
+      color: #FA8C05;
+      font-weight: 500;
+    }
+  }
+
+  .section-root {
+    height: 100%;
+    flex: 1 1 0;
+    min-width: 0;
+    box-sizing: border-box;
+    background: var(--drawer-bg);
+    padding: 20px 30px;
+    border-left: 1px solid var(--drawer_border);
+    display: flex;
+    flex-direction: column;
+
+    .section-content {
+      padding: 0 !important;
+    }
+
+  }
+
+  .order-middle {
+    margin-top: 10px;
+    position: relative;
+
+    .order_btn_add {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+
+  // 步骤内容区域
+  .step-content {
+    flex: 1;
+    display: flex;
+    padding: 20px 30px;
+    flex-direction: column;
+
+    .scan-input {
+      width: 490px;
+    }
+  }
+
+  .step-block-top {
+    margin-top: 20px;
+
+    :deep(.state-pill) {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 32px;
+      padding: 0 20px;
+      border-radius: 999px;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 32px;
+      white-space: nowrap;
+      background: transparent;
+      color: #000;
+    }
+
+    :deep(.state-pill.is-prepared) {
+      background: #00BAAD;
+      font-size: 16px;
+      color: #ffffff;
+    }
+  }
+
+  // 汇总表格样式（提取出的独立块）
+  .summary-table {
+
+    :deep(.el-table) {
+      font-size: 18px;
+      overflow-x: hidden;
+
+
+      .el-table__header-wrapper {
+        overflow-x: hidden;
+      }
+
+      .el-table__body-wrapper {
+        overflow-x: hidden;
+      }
+
+      .el-table__footer-wrapper {
+        overflow-x: hidden;
+      }
+
+      .el-table__header {
+
+        .el-table__cell {
+          background: #f5f7fa;
+          color: #000000;
+          text-align: center;
+
+          // 多级表头样式
+          &.is-group {
+            background: #e8f4fd;
+            border-bottom: 2px solid #2C70DE;
+          }
+        }
+        
+        // 二级表头（血液发血情况和计费信息）的圆角 - 全部设为0
+        tr:nth-child(2) {
+
+          th,
+          .el-table__cell {
+            border-radius: 0 !important;
+          }
+        }
+
+      }
+
+      .el-table__body {
+        .el-table__row {
+          &:hover {
+            .el-table__cell {
+              background: #f5f7fa;
+            }
+          }
+        }
+      }
+
+      // 直接针对合计行的样式
+      .el-table__footer {
+        .el-table__cell {
+          background-color: #E1EDFC90 !important;
+          color: var(--color_4) !important;
+        }
+      }
+
+    }
+  }
+
+  .item-code {
+    border-radius: 30px;
+    background: var(--drawer_border);
+    padding: 3px 10px;
+  }
+
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  :deep(.el-form-item) {
+    margin-bottom: 2px;
+  }
+}
+
+.form-vertical {
+  .el-form-item {
+    margin-bottom: 20px;
+  }
+
+  .required-right {
+    .el-form-item__label::after {
+      content: '*';
+      color: #f56565;
+      margin-left: 4px;
+    }
+  }
+}
+
+.input-textarea {
+  :deep(.el-textarea__inner) {
+    resize: none;
+  }
+}
+
+.select-disabled {
+  :deep(.el-input__inner) {
+    cursor: not-allowed;
+  }
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  :deep(.el-form-item) {
+    margin-bottom: 2px;
+  }
+}
+
+.form-vertical {
+  display: flex;
+  flex-direction: column;
+
+  :deep(.el-form-item) {
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+
+    .el-form-item__label {
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: 0px;
+      line-height: 24.7px;
+      color: rgba(0, 0, 0, 1);
+      font-weight: 400;
+      line-height: 20px;
+      margin-bottom: 10px;
+      padding: 0;
+    }
+
+    .el-form-item__content {
+      width: 100%;
+    }
+
+    .el-input__wrapper,
+    .el-cascader,
+    .el-select,
+    .el-textarea__inner {
+      width: 100%;
+    }
+
+  }
+}
+
+.form-horizontal {
+  display: flex;
+  flex-direction: column;
+
+  :deep(.el-form-item) {
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+
+    .el-form-item__label {
+      font-size: 18px;
+      font-weight: 400;
+      color: #000000;
+      line-height: 32px;
+      margin-top: 5px;
+      width: 110px;
+      text-align: left;
+      flex-shrink: 0;
+    }
+
+    &.is-required .el-form-item__label::before {
+      content: none;
+    }
+
+    &.is-required .el-form-item__label::after {
+      content: ' *';
+      color: #f56c6c;
+      margin-left: 4px;
+    }
+
+    .el-form-item__content {
+      flex: 1;
+      margin-left: 0 !important;
+    }
+
+    .el-input__wrapper,
+    .el-cascader,
+    .el-select,
+    .el-textarea__inner {
+      width: 100%;
+    }
+
+    .el-textarea__inner {
+      font-size: 18px;
+      line-height: 1.5;
+      padding: 8px 12px;
+    }
+
+    .el-select {
+      width: 100%;
+    }
+  }
+}
+
+.text-value {
+  font-size: 14px;
+  color: #606266;
+  line-height: 1.5;
+  display: block;
+  padding: 8px 0;
+
+  &::before {
+    content: '';
+    width: 0px !important;
+  }
+
+}
+
+.table-actions {
+  margin-top: 8px;
+  text-align: right;
+}
+
+:deep(.el-textarea__inner) {
+  height: 80px !important;
+}
+
+.centrifugation-left-panel {
+  width: 450px;
+  background: var(--drawer-bg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-right-panel {
+  flex: 1;
+  background: var(--drawer-bg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border-left: 1px solid #e4e7ed;
+}
+
+.panel-content {
+  flex: 1;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-link {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0px;
+  line-height: 21.95px;
+  text-decoration-line: underline;
+  color: #2C70DE;
+
+  &:hover {
+    color: #0062FF;
+    font-weight: 500;
+  }
+}
+
+.btn-scan {
+  font-size: 14px;
+  font-weight: 400;
+  color: #2C70DE;
+  padding: 0;
+  height: auto;
+
+  &:hover {
+    color: #0062FF;
+  }
+}
+
+.info-padding-gap {
+  padding: 15px 20px;
+  gap: 12px;
+}
+
+.info-row {
+  display: flex;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #64748B;
+}
+
+.list-filters {
+  display: flex;
+  gap: 10px;
+}
+
+.el-select {
+  width: 300px;
+}
+
+// select禁用状态样式
+.select-disabled {
+  :deep(.el-select__wrapper.is-disabled) {
+    opacity: 1 !important;
+    // background-color: var(--el-disabled-bg-color);
+  }
+
+  // 覆盖el-tooltip__trigger的禁用状态
+  :deep(.el-tooltip__trigger.is-disabled) {
+    opacity: 1 !important;
+  }
+
+  // 使用最强的CSS选择器强制覆盖禁用状态文字颜色
+  :deep(.el-input__inner[disabled]) {
+    color: #000000 !important;
+    opacity: 1 !important;
+    background-color: var(--el-disabled-bg-color) !important;
+  }
+
+  :deep(.el-select__wrapper.is-disabled.el-tooltip__trigger) {
+    opacity: 1 !important;
+    color: var(--color_2) !important;
+  }
+}
+
+.input-textarea {
+  background-color: var(--drawer-input-bg, #ffffff) !important;
+
+  &.is-disabled {
+    opacity: 1 !important;
+  }
+
+  :deep(.el-textarea.is-disabled) {
+    opacity: 1 !important;
+  }
+
+  // 使用最强的CSS选择器强制覆盖禁用状态文字颜色
+  :deep(.el-textarea__inner[disabled]) {
+    color: var(--color_4) !important;
+    opacity: 1 !important;
+    background-color: var(--drawer-input-bg, #ffffff) !important;
+  }
+
+
+  :deep(.el-textarea__inner) {
+    background-color: var(--drawer-input-bg, #ffffff) !important;
+    min-height: 80px !important;
+    height: 80px !important;
+    resize: none;
+    overflow: hidden;
+    padding: 8px 11px;
+    line-height: 1.5;
+    box-sizing: border-box;
+    // 使用field-sizing属性实现内容自适应
+    field-sizing: content;
+
+    // 或者使用scroll-height来动态调整
+    &:focus,
+    &:not(:placeholder-shown) {
+      height: auto !important;
+      min-height: 80px !important;
+    }
+  }
+}
+
+
+// 献血码扫描输入框
+.border-input {
+  border: 1px solid var(--logistics-input-border);
+  border-radius: 10px;
+  height: 48px !important;
+  transition: all 0.3s ease;
+
+  &:focus-within {
+    background: var(--logistics-input-focus-bg) !important;
+    border: 2px solid var(--logistics-input-focus-border) !important;
+    box-shadow: 0px 0px 10px var(--logistics-input-focus-shadow) !important;
+  }
+}
+
+
+
+// 修复下拉选择框样式错乱问题
+:deep(.el-select-dropdown) {
+  z-index: 9999 !important;
+}
+
+:deep(.el-popper) {
+  z-index: 9999 !important;
+}
+
+:deep(.el-select-dropdown__item) {
+  height: auto !important;
+  line-height: 1.5 !important;
+  padding: 8px 20px !important;
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  display: block !important;
+  position: relative !important;
+}
+
+:deep(.el-select-dropdown__list) {
+  padding: 6px 0 !important;
+}
+
+// 确保下拉框正确显示
+:deep(.el-select) {
+  .el-input {
+    .el-input__wrapper {
+      position: relative;
+    }
+  }
+}
+
+// el-select 禁用状态设置黑色文字
+:deep(.el-select.is-disabled) {
+  .el-input__wrapper {
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .el-input__inner {
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+    opacity: 1 !important;
+  }
+
+}
+
+// 多选框 设置黑色
+:deep(.el-select__tags-text) {
+  color: #000000 !important;
+}
+
+// 更强制的样式覆盖
+:deep(.el-select.is-disabled) {
+  .el-input__wrapper {
+    .el-input__inner {
+      color: #000000 !important;
+      -webkit-text-fill-color: #000000 !important;
+    }
+  }
+}
+
+// 最强制的样式覆盖 - 使用更高优先级
+:deep(.section-worktable .el-select.is-disabled .el-input__inner) {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+  opacity: 1 !important;
+}
+
+:deep(.section-worktable .el-select.is-disabled .el-input__wrapper) {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+
+// 表格单元格文本溢出样式
+.table-cell-text {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
