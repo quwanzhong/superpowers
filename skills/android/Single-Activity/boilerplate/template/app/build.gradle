@@ -1,0 +1,64 @@
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.kapt)
+}
+
+android {
+    compileSdk 30
+    namespace "__PACKAGE_NAME__"
+
+    defaultConfig {
+        applicationId "__APPLICATION_ID__"
+        minSdk 21
+        targetSdk 30
+        versionCode 1
+        versionName "1.0.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "BASE_URL", '"__BASE_URL__"')
+        }
+        debug {
+            buildConfigField("String", "BASE_URL", '"__BASE_URL__"')
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        viewBinding = true
+    }
+}
+
+dependencies {
+    implementation libs.androidx.core.ktx
+    implementation libs.androidx.appcompat
+    implementation libs.material
+    implementation libs.constraintlayout
+
+    implementation libs.lifecycle.extensions
+    implementation libs.lifecycle.viewmodel.ktx
+    implementation libs.lifecycle.livedata.ktx
+
+    implementation libs.okhttp
+    implementation libs.retrofit
+    implementation libs.retrofit.converter.gson
+
+    testImplementation libs.junit4
+    androidTestImplementation libs.androidx.test.junit
+    androidTestImplementation libs.espresso.core
+}

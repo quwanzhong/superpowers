@@ -1,0 +1,17 @@
+# Glob patterns (one per line) that should be treated as binary / not modified during replacement
+**/*.png
+**/*.jpg
+**/*.jpeg
+**/*.webp
+**/*.gif
+**/*.ico
+**/*.keystore
+**/*.jks
+**/*.aar
+**/*.jar
+**/*.so
+**/*.ttf
+**/*.otf
+**/*.mp3
+**/*.wav
+**/*.mp4

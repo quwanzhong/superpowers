@@ -1,0 +1,25 @@
+{
+  "placeholders": {
+    "__APPLICATION_ID__": "com.example.singleactivity",
+    "__PACKAGE_NAME__": "com.example.singleactivity",
+    "__APP_NAME__": "SingleActivityApp",
+    "__BASE_URL__": "http://127.0.0.1/"
+  },
+  "replace_rules": [
+    {
+      "type": "path",
+      "from": "app/src/main/java/__PACKAGE_PATH__/",
+      "to": "app/src/main/java/{package_path}/"
+    },
+    {
+      "type": "content",
+      "files": ["**/*"],
+      "replacements": [
+        {"from": "__APPLICATION_ID__", "to": "{application_id}"},
+        {"from": "__PACKAGE_NAME__", "to": "{package_name}"},
+        {"from": "__APP_NAME__", "to": "{app_name}"},
+        {"from": "__BASE_URL__", "to": "{base_url}"}
+      ]
+    }
+  ]
+}
